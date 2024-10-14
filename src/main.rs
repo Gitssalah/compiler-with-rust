@@ -1,4 +1,4 @@
-mod abstract_syntax_tree;
+//mod abstract_syntax_tree;
 
 fn main() {
     let vec = vec![1, 5, 13, 40];
@@ -19,4 +19,7 @@ fn main() {
     ) = iter.next() {
         println!("Value: {}", val);
     }
+    let mut c: char = ' ';
+    let result = c.is_alphabetic();
+    println!("is it a alpha_num: {}", result)
 }
