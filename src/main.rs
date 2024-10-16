@@ -1,25 +1,5 @@
 //mod abstract_syntax_tree;
-
+//need to read a file using our lang (file.lang)
 fn main() {
-    let vec = vec![1, 5, 13, 40];
-    let mut iter = vec.iter().peekable();
 
-    // Peeking at the first element without advancing
-    println!("Peek: {:?}", iter.peek()); // Outputs: Some(&1)
-
-    // Using next() to advance the iterator
-    println!("Next: {:?}", iter.next()); // Outputs: Some(1)
-
-    // Peeking at the second element now
-    println!("Peek: {:?}", iter.peek()); // Outputs: Some(&2)
-    println!("Next: {:?}", iter.next()); // Outputs: Some(2)
-
-    // Continue with the rest of the iteration
-    while let Some(val
-    ) = iter.next() {
-        println!("Value: {}", val);
-    }
-    let mut c: char = ' ';
-    let _result = 9 % 2;
-    println!("is it a alpha_num: {:?}", _result)
 }
