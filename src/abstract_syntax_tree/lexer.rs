@@ -26,6 +26,10 @@ pub fn lexer (file_content: &str) -> &'static str {
             let buff = line.split('=').map(|s| s.to_string());
             var.push((buff[0]), buff[1].parse().unwrap())
         }
+        else if line.contains(("-")) {
+            //same issue no use f tokens
+
+        }
     }
     return ""
 }
