@@ -16,23 +16,15 @@ pub struct  Token {
 }
 
 pub fn lexer (file_content: &str) -> &'static str {
-    let mut c: &str = "";
-    let mut my_vars: Vec<(str, i64)> = vec![];
-    let mut ele: &str = "";
-    let mut value: i64 = 0;
-    let mut value_as_string: &str = "";
-    let mut i: i64 = 0;
     // todo: correct this garbage
-    while c != ";" {
-        c = file_content[i];
-        if c.is_alphabetic() { //first we assume that a variable can only contain letters
-            ele += c;
-        }
-        else if c.is_degit(10) {
-            value_as_string += c
-        }
-        else {
-
+    file_content = file_content.replace(" ", "");
+    let mut lines = file_content.split(';').map(|s| s.to_string());
+    let vars: [(str,i64)] = [];
+    for line in lines {
+        // collect the var and there valur the issue is that I'm not using the tokens
+        if line.contains("=") {
+            let buff = line.split('=').map(|s| s.to_string());
+            var.push((buff[0]), buff[1].parse().unwrap())
         }
     }
     return ""

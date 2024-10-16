@@ -20,6 +20,6 @@ fn main() {
         println!("Value: {}", val);
     }
     let mut c: char = ' ';
-    let result = c.is_alphabetic();
-    println!("is it a alpha_num: {}", result)
+    let _result = 9 % 2;
+    println!("is it a alpha_num: {:?}", _result)
 }
