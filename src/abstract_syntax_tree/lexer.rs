@@ -26,12 +26,11 @@ pub fn lexer (content: String) -> &'static str {
             let mut buff: Vec<String> = line.split('=').map(|s| s.to_string()).collect();
             vars.push((buff[0].clone(), buff[1].parse().unwrap()));
             println!("hi {:?}", vars);
-            return "00"
+
         }
         else if line.contains(("-")) {
-            //same issue no use f tokens
-            return "0"
+            //same issue no use f token
         }
     }
-    return ""
+    return "0"
 }
