@@ -13,3 +13,7 @@ x + y; <br>
 
  ![img.png](img.png) 
 
+In this project we will create a list of tokens that will be later converted to assembly
+
+<h3>Step 2 : Parsing  </h3>
+
