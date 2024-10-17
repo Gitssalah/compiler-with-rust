@@ -15,7 +15,7 @@ pub struct  Token {
     value: Option<String>, // the value in str then it should be compiled by rustc
 }
 
-pub fn lexer (content: &String) -> &'static str {
+pub fn lexer (content: String) -> &'static str {
     // todo: correct this garbage
     let mut file_content = content.replace(" ", "");
     let mut lines = file_content.split(';').map(|s| s.to_string());
@@ -23,9 +23,10 @@ pub fn lexer (content: &String) -> &'static str {
     for line in lines {
         // collect the var and there value the issue is that I'm not using the tokens
         if line.contains("=") {
-            let mut buff = line.split('=').map(|s| s.to_string());
-            let (var_name, var_value) = (buff.next(), buff.next());
-            return vars.push((var_name.unwrap(), var_value.expect("REASON").parse().unwrap()))
+            let mut buff: Vec<String> = line.split('=').map(|s| s.to_string()).collect();
+            vars.push((buff[0].clone(), buff[1].parse().unwrap()));
+            println!("hi {:?}", vars);
+            return "00"
         }
         else if line.contains(("-")) {
             //same issue no use f tokens
