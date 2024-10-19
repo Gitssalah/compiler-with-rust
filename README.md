@@ -15,5 +15,6 @@ x + y; <br>
 
 In this project we will create a list of tokens that will be later converted to assembly
 
-<h3>Step 2 : Parsing  </h3>
-
+<h3>Step 2 : Syntax Analysis (Parsing)  </h3>
+<p>Parsing is the next phase after tokenization. It involves taking the stream of tokens from the lexer and analyzing how they fit together according to the grammar rules of the language.</p>
+<p>The output of this phase is usually an Abstract Syntax Tree (AST), a hierarchical representation of the structure of the program.</p>

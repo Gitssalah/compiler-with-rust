@@ -1,4 +1,4 @@
-use crate::abstract_syntax_tree::lexer::TokenKey::{Begin, End, Error, NewLine, Plus, Variable, VariableWithValue};
+use crate::abstract_syntax_tree::lexer::TokenKey::{Begin, End, Error, NewLine, Number, Plus, Variable, VariableWithValue};
 
 // Indicator of each key element
 #[derive(Debug)]
@@ -10,6 +10,7 @@ pub enum TokenKey {
     Equal,
     SemiColumn,
     Variable(String),
+    Number(i64),
     VariableWithValue(String,i64),
     NewLine,
     Error,
@@ -22,6 +23,19 @@ pub struct  Token {
     value: Option<String>, // the value in str then it should be compiled by rustc
 }
 
+pub fn tokenize(elem: String) -> TokenKey {
+    if elem.parse::<i64>().is_ok() {
+        Number(elem.parse::<i64>().unwrap())
+    }
+    else {
+        match elem.as_str() {
+            "+" => Plus,
+            "\n" => NewLine,
+            _ => Variable(elem)
+        }
+    }
+}
+
 pub fn lexer (content: String) -> Vec<TokenKey> {
     // todo: correct this garbage
     let mut file_content = content.replace(" ", "");
@@ -31,7 +45,7 @@ pub fn lexer (content: String) -> Vec<TokenKey> {
     for mut line in lines {
         // collect the var and there value the issue is that I'm not using the tokens
         if line.contains("\n") {
-            tokenized_list.push(NewLine);
+            // tokenized_list.push(NewLine);
             line.remove(0);
             line.remove(0);
         }
@@ -44,9 +58,9 @@ pub fn lexer (content: String) -> Vec<TokenKey> {
         }
         else if line.contains(("+")) {
             let mut buff: Vec<String>=line.split('+').map(|x| x.to_string()).collect();
-            tokenized_list.push(Variable(buff[0].clone()));
+            tokenized_list.push(tokenize(buff[0].clone()));
             tokenized_list.push(Plus);
-            tokenized_list.push(Variable(buff[1].clone()));
+            tokenized_list.push(tokenize(buff[1].clone()));
         }
         else {
             tokenized_list.push(Error);
