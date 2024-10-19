@@ -59,8 +59,10 @@ pub fn lexer (content: String) -> Vec<TokenKey> {
         else if line.contains(("+")) {
             let mut buff: Vec<String>=line.split('+').map(|x| x.to_string()).collect();
             tokenized_list.push(tokenize(buff[0].clone()));
-            tokenized_list.push(Plus);
-            tokenized_list.push(tokenize(buff[1].clone()));
+            for i in 1..buff.len() {
+                tokenized_list.push(Plus);
+                tokenized_list.push(tokenize(buff[i].clone()));
+            }
         }
         else {
             tokenized_list.push(Error);
