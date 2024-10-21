@@ -1,4 +1,4 @@
-use crate::abstract_syntax_tree::lexer::TokenKey::{Begin, End, Error, NewLine, Number, Plus, Variable, VariableWithValue};
+use crate::abstract_syntax_tree::lexer::TokenKey::{Begin, End, Error, NewLine, Number, Plus, Print, Variable, VariableWithValue};
 
 // Indicator of each key element
 #[derive(Debug)]
@@ -13,6 +13,7 @@ pub enum TokenKey {
     Number(i64),
     VariableWithValue(String,i64),
     NewLine,
+    Print,
     Error,
     Begin,
     End,
@@ -49,6 +50,11 @@ pub fn lexer (content: String) -> Vec<TokenKey> {
             line.remove(0);
             line.remove(0);
             tokenized_list.push(NewLine);
+        }
+        if line.contains("print"){
+            line.drain(0..6);
+            line.remove(line.len()-1);
+            tokenized_list.push(Print);
         }
         if line.contains("=") {
             let mut buff: Vec<String> = line.split('=').map(|s| s.to_string()).collect();
