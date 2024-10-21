@@ -4,7 +4,7 @@
 <p>
 x = 1; <br>
 y = 5; <br>
-x + y; <br>
+print(x + y); <br>
 </p>
 
 <p> After compiling we expect the result 6 </p>
