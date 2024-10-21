@@ -48,6 +48,7 @@ pub fn lexer (content: String) -> Vec<TokenKey> {
             // tokenized_list.push(NewLine);
             line.remove(0);
             line.remove(0);
+            tokenized_list.push(NewLine);
         }
         if line.contains("=") {
             let mut buff: Vec<String> = line.split('=').map(|s| s.to_string()).collect();

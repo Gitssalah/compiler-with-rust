@@ -10,5 +10,12 @@ fn main() {
     let content = file_contents.unwrap();
     println!("file content \n {:?}", content);
     let result = abstract_syntax_tree::lexer::lexer(content);
-    println!("result {:?}", result)
+    println!("result {:?}", result);
+    for res in result {
+        match abstract_syntax_tree::parser::consume(res) {
+            Some(value) =>println!("tokens consumed {:?}", value),
+            None =>print!("")
+        }
+
+    }
 }

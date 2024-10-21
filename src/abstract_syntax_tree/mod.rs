@@ -1,2 +1,2 @@
 pub mod lexer;
-mod r#parser
+pub mod parser;
