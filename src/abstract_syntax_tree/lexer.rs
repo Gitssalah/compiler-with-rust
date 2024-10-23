@@ -1,4 +1,6 @@
 use crate::abstract_syntax_tree::lexer::TokenKey::{Begin, End, Error, NewLine, Number, Plus, Print, Variable, VariableWithValue};
+use crate::error_handler::error_controller::error_controller;
+use crate::error_handler::error_controller::error_handler;
 
 // Indicator of each key element
 #[derive(Debug)]
@@ -14,7 +16,7 @@ pub enum TokenKey {
     VariableWithValue(String,i64),
     NewLine,
     Print,
-    Error,
+    Error(String),
     Begin,
     End,
 }
@@ -72,7 +74,10 @@ pub fn lexer (content: String) -> Vec<TokenKey> {
             }
         }
         else {
-            tokenized_list.push(Error);
+            //tokenized_list.push(Error(line));
+            error_handler(error_controller(Error(line)));
+            break;
+
         }
 
     }

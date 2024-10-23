@@ -3,6 +3,9 @@ use std::fs;
 use std::fs::File;
 use std::io::Write;
 use std::env;
+mod error_handler {
+    pub mod error_controller;
+}
 //need to read a file using our lang (file.lang)
 //lib used
 fn main() {
