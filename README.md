@@ -22,3 +22,5 @@ In this project we will create a list of tokens that will be later converted to 
 <h3> Step 3 : Error Handling</h3>
  <p>We will add an error handler to show print error type and a message explaining the error</p>
  <p>Todo: add diagram of error handing </p>
+
+<h3> Step 4: add commands to compile</h3>
