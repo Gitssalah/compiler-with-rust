@@ -15,7 +15,8 @@ pub fn consume (token: TokenKey) -> Option<String>{
         TokenKey::Variable(value) =>Some(value),
         TokenKey::VariableWithValue(first_value,second_value) =>Some(format!("let mut {}: i64 = {}", first_value, second_value)),
         TokenKey::Begin => Some(format!("fn main () {{ \n")),
-        TokenKey::End => Some(format!("\n }}")),
+        TokenKey::End => Some(format!(")\n }}")),
+        TokenKey::Print => Some(format!("println!(\"{{}}\",")),
         _ => None
     }
 }

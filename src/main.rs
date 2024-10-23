@@ -4,6 +4,7 @@ use std::fs::File;
 use std::io::Write;
 use std::env;
 mod error_handler;
+use std::process::Command;
 
 //need to read a file using our lang (file.lang)
 //lib used
@@ -32,4 +33,11 @@ fn main() {
             continue; // Explicitly continue to the next iteration
         }
     }
+    let output = {
+        Command::new("rustc")
+            .args([".\\file.rs"])
+            .output()
+            .expect("failed to execute process")
+    };
+    println!("{:?}", output);
 }

@@ -1,4 +1,3 @@
 x = 5;
 y = 8;
-fzfzfz;
 print(x+y+7)
