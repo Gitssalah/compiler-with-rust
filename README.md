@@ -1,6 +1,6 @@
 # compiler-with-rust
 <p> Our main objective is to compile a file.lang that contain a simple operation with + - * and / </p>
- <p> example: file.lang </p>
+ <p> example: src/file.lang </p>
 <p>
 x = 1; <br>
 y = 5; <br>
