@@ -7,9 +7,9 @@ pub enum ErrorType {
 }
 
 // todo add a handler that will receive error from the enum of token and determine the error type
-pub fn error_controller(err: TokenKey) -> ErrorType {
+pub fn error_controller(err: &TokenKey) -> ErrorType {
     match err {
-        TokenKey::Error(value) =>  ErrorType::SyntaxError(value),
+        TokenKey::Error(value) =>  ErrorType::SyntaxError(value.clone()),
         _=>ErrorType::None
     }
 

@@ -74,10 +74,9 @@ pub fn lexer (content: String) -> Vec<TokenKey> {
             }
         }
         else {
-            //tokenized_list.push(Error(line));
-            error_handler(error_controller(Error(line)));
-            break;
-
+            let err = Error(line);
+            error_handler(error_controller(&err));
+            tokenized_list.push(err);
         }
 
     }
