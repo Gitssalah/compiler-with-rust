@@ -1,4 +1,6 @@
 /target
-/src/main.exe
-/src/main.pdb
+/main.exe
+/main.pdb
 /file.rs
+/file.exe
+/file.pdb
